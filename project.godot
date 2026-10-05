@@ -12,10 +12,14 @@ config_version=5
 
 config/name="Gatodoro"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/show_image=false
+boot_splash/stretch_mode=0
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=500
+window/size/viewport_height=618
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

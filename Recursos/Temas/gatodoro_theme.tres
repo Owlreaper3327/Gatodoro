@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://bug00rofwu3dj"]
+
+[resource]
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)

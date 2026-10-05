@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dmaeqtcyu3vc"]
+
+[ext_resource type="Script" uid="uid://f7u7x7x6k41m" path="res://Recursos/Scripts/gato.gd" id="1_m62he"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fudbt"]
+
+[node name="Gato" type="Control" unique_id=1478772613]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "¡Miau!"
+script = ExtResource("1_m62he")
+
+[node name="gato_sprite" type="AnimatedSprite2D" parent="." unique_id=1240081022]
+sprite_frames = SubResource("SpriteFrames_fudbt")
+
+[node name="animador" type="AnimationPlayer" parent="." unique_id=151066644]
