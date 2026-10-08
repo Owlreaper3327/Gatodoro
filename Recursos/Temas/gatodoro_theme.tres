@@ -1,7 +1,11 @@
 [gd_resource type="Theme" format=3 uid="uid://bug00rofwu3dj"]
 
+[ext_resource type="StyleBox" uid="uid://cb5rrawm3jv3t" path="res://Recursos/Temas/gatodor_style_panel.tres" id="1_av3oo"]
+
 [resource]
 Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
-Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(0.6313726, 0.45882353, 0.5176471, 1)
 Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(0.8156863, 0.79607844, 0.78431374, 1)
+Button/colors/icon_pressed_color = Color(0.60784316, 0.5568628, 0.6666667, 1)
+Panel/styles/panel = ExtResource("1_av3oo")

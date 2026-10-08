@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://b33hu2j16jooo"]
 
 [ext_resource type="Script" uid="uid://bjlwu7ysks8uj" path="res://Recursos/Scripts/pantalla_principal.gd" id="1_appp4"]
+[ext_resource type="Theme" uid="uid://bug00rofwu3dj" path="res://Recursos/Temas/gatodoro_theme.tres" id="2_085qs"]
 [ext_resource type="Texture2D" uid="uid://dafditkxgx25d" path="res://Recursos/Gráficos/16x16 Botones color blanco1.png" id="2_sru1e"]
 [ext_resource type="Texture2D" uid="uid://d3e6f7araulh" path="res://Recursos/Gráficos/16x16 Botones color blanco2.png" id="3_bxr5h"]
 [ext_resource type="Texture2D" uid="uid://exx2r7gjs57j" path="res://Recursos/Gráficos/16x16 Botones color blanco3.png" id="4_yi0ap"]
 [ext_resource type="Texture2D" uid="uid://b3yxkd7l4g13g" path="res://Recursos/Gráficos/16x16 Botones color blanco4.png" id="5_h5nfs"]
 [ext_resource type="PackedScene" uid="uid://dmaeqtcyu3vc" path="res://Escenas/gato.tscn" id="6_yi0ap"]
+[ext_resource type="Texture2D" uid="uid://c5m7ilrujo8so" path="res://Recursos/Gráficos/16x16 Botones color blanco6.png" id="7_h5nfs"]
 
-[sub_resource type="Theme" id="Theme_yi0ap"]
-Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
-Button/colors/icon_hover_color = Color(1, 1, 1, 1)
-Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_fudbt"]
+font_size = 90
+font_color = Color(0.8686781, 0.9316542, 0.9771499, 1)
 
 [node name="Gatodoro" type="Control" unique_id=1520810338]
 layout_mode = 3
@@ -36,6 +36,21 @@ offset_bottom = 0.07397461
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 1
+theme = ExtResource("2_085qs")
+
+[node name="Gato" parent="panel" unique_id=1478772613 instance=ExtResource("6_yi0ap")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.41700003
+anchor_right = 0.91400003
+anchor_bottom = 0.753
+offset_left = -0.11829376
+offset_top = -0.18048096
+offset_right = 0.036010742
+offset_bottom = 8.710724
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="layout_botones" type="HBoxContainer" parent="panel" unique_id=376281741]
 layout_mode = 1
@@ -55,39 +70,70 @@ alignment = 1
 [node name="boton_play" type="Button" parent="panel/layout_botones" unique_id=1328648444]
 layout_mode = 2
 tooltip_text = "Inicia el temporizador del pomodoro"
-theme = SubResource("Theme_yi0ap")
+theme = ExtResource("2_085qs")
 icon = ExtResource("2_sru1e")
 flat = true
 
 [node name="boton_pausa" type="Button" parent="panel/layout_botones" unique_id=246979555]
 layout_mode = 2
+theme = ExtResource("2_085qs")
 icon = ExtResource("3_bxr5h")
 flat = true
 
 [node name="boton_skip" type="Button" parent="panel/layout_botones" unique_id=1490878272]
 layout_mode = 2
+theme = ExtResource("2_085qs")
 icon = ExtResource("4_yi0ap")
 flat = true
 
 [node name="boton_reset" type="Button" parent="panel/layout_botones" unique_id=1357903777]
 layout_mode = 2
+theme = ExtResource("2_085qs")
 icon = ExtResource("5_h5nfs")
+flat = true
+
+[node name="contenedor_gatodoro" type="VBoxContainer" parent="panel" unique_id=1716174419]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009000001
+anchor_top = 0.15900001
+anchor_right = 0.99600005
+anchor_bottom = 0.42000002
+offset_left = -0.08476496
+offset_top = -0.20550537
+offset_right = 0.0017089844
+offset_bottom = -0.05227661
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="marcador_tiempo" type="Label" parent="panel/contenedor_gatodoro" unique_id=1198475007]
+layout_mode = 2
+text = "25:00"
+label_settings = SubResource("LabelSettings_fudbt")
+horizontal_alignment = 1
+
+[node name="numero_objetivos" type="HBoxContainer" parent="panel/contenedor_gatodoro" unique_id=1580207276]
+layout_mode = 2
+alignment = 1
+
+[node name="boton_estadisticas" type="Button" parent="panel" unique_id=1344133170]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme = ExtResource("2_085qs")
+icon = ExtResource("7_h5nfs")
 flat = true
 
 [node name="temporizador" type="Timer" parent="." unique_id=1145476991]
 
-[node name="Gato" parent="." unique_id=1478772613 instance=ExtResource("6_yi0ap")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.13700001
-anchor_top = 0.407
-anchor_right = 0.88000005
-anchor_bottom = 0.76600003
-offset_left = 0.22599792
-offset_top = -0.083999634
-offset_right = 0.23995972
-offset_bottom = 0.2079773
-
 [node name="animador" type="AnimationPlayer" parent="." unique_id=873157525]
 
 [node name="sonido" type="AudioStreamPlayer2D" parent="." unique_id=1314365239]
+
+[connection signal="pressed" from="panel/layout_botones/boton_play" to="." method="_on_boton_play_pressed"]
+[connection signal="pressed" from="panel/layout_botones/boton_pausa" to="." method="_on_boton_pausa_pressed"]
+[connection signal="timeout" from="temporizador" to="." method="_on_temporizador_timeout"]
