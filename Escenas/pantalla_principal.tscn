@@ -76,18 +76,21 @@ flat = true
 
 [node name="boton_pausa" type="Button" parent="panel/layout_botones" unique_id=246979555]
 layout_mode = 2
+tooltip_text = "Pausa el temporizador del pomodoro"
 theme = ExtResource("2_085qs")
 icon = ExtResource("3_bxr5h")
 flat = true
 
 [node name="boton_skip" type="Button" parent="panel/layout_botones" unique_id=1490878272]
 layout_mode = 2
+tooltip_text = "Salta a la siguiente fase del pomodoro (o lo reinicia si está en el descanso)"
 theme = ExtResource("2_085qs")
 icon = ExtResource("4_yi0ap")
 flat = true
 
 [node name="boton_reset" type="Button" parent="panel/layout_botones" unique_id=1357903777]
 layout_mode = 2
+tooltip_text = "Reinicia el pomodoro"
 theme = ExtResource("2_085qs")
 icon = ExtResource("5_h5nfs")
 flat = true
@@ -105,6 +108,7 @@ offset_right = 0.0017089844
 offset_bottom = -0.05227661
 grow_horizontal = 2
 grow_vertical = 2
+tooltip_text = "\"Time never waits. Tic tac, tic tac\""
 
 [node name="marcador_tiempo" type="Label" parent="panel/contenedor_gatodoro" unique_id=1198475007]
 layout_mode = 2
@@ -136,4 +140,6 @@ flat = true
 
 [connection signal="pressed" from="panel/layout_botones/boton_play" to="." method="_on_boton_play_pressed"]
 [connection signal="pressed" from="panel/layout_botones/boton_pausa" to="." method="_on_boton_pausa_pressed"]
+[connection signal="pressed" from="panel/layout_botones/boton_skip" to="." method="_on_boton_skip_pressed"]
+[connection signal="pressed" from="panel/layout_botones/boton_reset" to="." method="_on_boton_reset_pressed"]
 [connection signal="timeout" from="temporizador" to="." method="_on_temporizador_timeout"]
