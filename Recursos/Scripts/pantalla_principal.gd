@@ -19,6 +19,8 @@ func _ready() -> void:
 	minutos_sesion = 25;
 	marcador_tiempo.text = "{0}:00".format([minutos_sesion]);
 	$panel/layout_botones/boton_pausa.disabled = true;
+	iniciar_iconos_obj_diario();
+	actualizar_obj_diario();
 	pass # Replace with function body.
 
 func empezar() -> void:
@@ -46,6 +48,7 @@ func reanudar() -> void:
 func empezar_descanso() -> void:
 	temporizador.start(float((minutos_sesion/5) * 60));
 	descanso = true;
+	actualizar_obj_diario();
 	#Falta el código para poner el cartelito de descanso
 	#Cambiar la animación del gato
 	#Deshabilitar otros botones
@@ -75,6 +78,30 @@ func reiniciar() -> void:
 	descanso = false;
 	segundoss_restantes = 0;
 
+func iniciar_iconos_obj_diario() -> void:
+	var contenedor: HBoxContainer = $panel/contenedor_gatodoro/numero_objetivos;
+	
+	var cantidad: int = GlobalConfig.objetivo_diario;
+	
+	for i in range(0, cantidad, 1):
+		var hijo: PackedScene = load("res://Escenas/marcador_objetivo.tscn");
+		contenedor.add_child(hijo.instantiate())
+
+func actualizar_obj_diario() -> void:
+	var contenedor: HBoxContainer = $panel/contenedor_gatodoro/numero_objetivos;
+	
+	var objetivo: int = GlobalConfig.objetivo_diario; 
+	var cantidad: int = GlobalConfig.sesiones_completadas if GlobalConfig.sesiones_completadas <= objetivo\
+	else objetivo;
+	var contador = 0;
+	
+	for i: Objetivo in contenedor.get_children():
+		
+		if contador != cantidad:
+			i.marcar_cumplido();
+			contador += 1;
+
+
 func _on_boton_play_pressed() -> void:
 	if !activo && segundoss_restantes == 0:
 		empezar();
@@ -86,7 +113,7 @@ func _on_boton_play_pressed() -> void:
 
 func _on_boton_pausa_pressed() -> void:
 	if activo or segundoss_restantes > 0:
-		pausar()
+		pausar();
 	pass # Replace with function body.
 
 
@@ -100,6 +127,7 @@ func _on_temporizador_timeout() -> void:
 	else:
 		#Falta el código para agregar estadísticas
 		#Cambiar la animación del gato, etc
+		GlobalConfig.completar_sesion();
 		reiniciar();
 	pass # Replace with function body.
 
@@ -111,7 +139,8 @@ func _on_boton_reset_pressed() -> void:
 
 func _on_boton_skip_pressed() -> void:
 	if !descanso:
-		empezar_descanso()
+		GlobalConfig.completar_sesion();
+		empezar_descanso();
 	else:
-		reiniciar()
+		reiniciar();
 	pass # Replace with function body.

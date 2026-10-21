@@ -13,6 +13,8 @@
 font_size = 90
 font_color = Color(0.8686781, 0.9316542, 0.9771499, 1)
 
+[sub_resource type="AudioStream" id="AudioStream_085qs"]
+
 [node name="Gatodoro" type="Control" unique_id=1520810338]
 layout_mode = 3
 anchor_right = 1.0040001
@@ -137,6 +139,7 @@ flat = true
 [node name="animador" type="AnimationPlayer" parent="." unique_id=873157525]
 
 [node name="sonido" type="AudioStreamPlayer2D" parent="." unique_id=1314365239]
+stream = SubResource("AudioStream_085qs")
 
 [connection signal="pressed" from="panel/layout_botones/boton_play" to="." method="_on_boton_play_pressed"]
 [connection signal="pressed" from="panel/layout_botones/boton_pausa" to="." method="_on_boton_pausa_pressed"]

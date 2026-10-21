@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://n7h4isjw1ydk"]
+
+[ext_resource type="Texture2D" uid="uid://ryu811ctnsts" path="res://Recursos/Gráficos/16x16 Objetivo diario1.png" id="1_h7t5l"]
+[ext_resource type="Script" uid="uid://dyfq3p1c1ok43" path="res://Recursos/Scripts/marcador_objetivo.gd" id="2_ujeky"]
+
+[node name="marcador_objetivo" type="TextureRect" unique_id=764939988]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_h7t5l")
+script = ExtResource("2_ujeky")
