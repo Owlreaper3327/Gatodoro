@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://rd8ueruk30ql"]
 
+[ext_resource type="Script" uid="uid://dyvslrg4asvsr" path="res://Recursos/Scripts/mapa_calor.gd" id="1_tmgb5"]
+
 [node name="MapaCalor" type="Control" unique_id=1049973690]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tmgb5")
 
 [node name="Panel" type="Panel" parent="." unique_id=1701678622]
 layout_mode = 1
@@ -15,23 +18,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -77.0
-offset_top = -77.0
-offset_right = 74.0
-offset_bottom = 55.0
+offset_left = -202.0
+offset_top = -175.0
+offset_right = 208.0
+offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="calendario" type="GridContainer" parent="Panel" unique_id=1452489265]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.079
-anchor_top = 0.208
-anchor_right = 0.93000007
-anchor_bottom = 0.89500004
-offset_left = -0.059000015
-offset_right = -0.030014038
-offset_bottom = 0.02999878
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.01449585
+offset_top = -0.01499939
+offset_right = 0.01449585
+offset_bottom = 0.01499939
 grow_horizontal = 2
 grow_vertical = 2
 columns = 7

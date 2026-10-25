@@ -59,6 +59,7 @@ func _iniciar_arreglo(mes: int) -> void:
 	while contador < mes:
 		
 		dias_sesiones.append(0);
+		contador += 1;
 
 func _cargar_racha() -> void:
 	#insertar lógica para cargar los datos de dias anteriores
