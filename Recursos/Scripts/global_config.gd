@@ -5,6 +5,7 @@ class_name Config
 @onready var sesiones_completadas: int = 0;
 @onready var objetivo_diario: int = cargar_objetivo_diario();
 @onready var fecha_actual_dict: Dictionary = Time.get_date_dict_from_system(false);
+var config: Config_save
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
