@@ -7,7 +7,7 @@ enum MES {Enero = 31, Febrero_normal = 28, Febrero_bisiesto = 29, Marzo = 31,
 Abril = 30, Mayo = 31, Junio = 30, Julio = 31, Agosto = 31, Septiembre = 30, 
 Octubre = 31, Noviembre = 30, Diciembre = 31}
 var dia_inicial: int
-var año: int
+var year: int
 var mes: int
 
 # Called when the node enters the scene tree for the first time.
@@ -63,6 +63,12 @@ func _iniciar_arreglo(mes: int) -> void:
 
 func _cargar_racha() -> void:
 	#insertar lógica para cargar los datos de dias anteriores
+	var salva: StatSave = StatManager._load(mes, year)
+	
+	if salva == null:
+		return
+	
+	dias_sesiones = salva.mes_guardado
 	pass
 
 func _asignar_primer_dia() -> void:

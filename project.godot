@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+StatManager="*uid://g0aud7ku7o0i"
 GlobalConfig="*uid://x5fww3vo6mst"
 
 [display]

@@ -1,10 +1,10 @@
-extends Node
+extends Resource
 
 class_name Config_save
 
-@onready var objetivo_diario: int = 4
-var gato_index: int
-var fondo_index: int
+@export var objetivo_diario: int = 4
+@export var gato_index: int
+@export var fondo_index: int
 
 
 # Called when the node enters the scene tree for the first time.
