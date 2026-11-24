@@ -12,7 +12,8 @@ var objetivo_diario: int;
 @onready var marcador_tiempo: Label = $panel/contenedor_gatodoro/marcador_tiempo;
 var nombre_tarea: String;
 @onready var segundoss_restantes: int = 0;
-
+#SUSTITUIR EL MENÚ DE CONFIGURACIÓN POR LA ESCENA REAL
+@onready var config_menu = preload("res://Escenas/menu_estadisticas.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -143,4 +144,9 @@ func _on_boton_skip_pressed() -> void:
 		empezar_descanso();
 	else:
 		reiniciar();
+	pass # Replace with function body.
+
+
+func _on_boton_estadisticas_pressed() -> void:
+	GlobalConfig.gatodoro_to_stats()
 	pass # Replace with function body.

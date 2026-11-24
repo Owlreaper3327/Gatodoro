@@ -5,11 +5,16 @@ class_name Stat_manager
 
 const save_path = "user://"
 var estadisticas: StatSave = StatSave.new()
+var estadisticas_generales = GeneralStats.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	estadisticas.mes_guardado = range(31)
 	estadisticas.mes_guardado.fill(0)
+	var fecha = Time.get_date_dict_from_system()
+	
+	estadisticas.mes = fecha["month"]
+	estadisticas.anno = fecha["year"]
 	
 	var loaded = _load(estadisticas.mes, estadisticas.anno)
 	
@@ -23,8 +28,10 @@ func _save():
 	var anno = estadisticas.anno
 	
 	var formato = "{0}-{1}.tres".format([mes, anno])
+	var gen_stats = "stats.tres"
 	
 	ResourceSaver.save(estadisticas, save_path + formato)
+	ResourceSaver.save(estadisticas_generales, save_path + gen_stats)
 	print("Estadísticas salvadas")
 
 func _load(mes: int, anno: int):
@@ -36,8 +43,20 @@ func _load(mes: int, anno: int):
 		print("Estadísticas cargadas")
 		return estadisticas
 	
+	
 	print("No había estadísticas que cargar")
 	return null
+
+func _load_gen_stats():
+	
+	if FileAccess.file_exists(save_path + "stats.tres"):
+		estadisticas_generales = ResourceLoader.load(save_path + "stats.tres")
+		print("Estadísticas generales cargadas")
+		return estadisticas_generales
+	
+	print("No había estadísticas generales que cargar")
+	return null
+
 
 func sesiones_completadas(indice: int) -> int:
 	

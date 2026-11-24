@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://byklgfc7eiync"]
+
+[ext_resource type="Theme" uid="uid://bug00rofwu3dj" path="res://Recursos/Temas/gatodoro_theme.tres" id="1_1db6w"]
+[ext_resource type="Script" uid="uid://d3fx2cwipgotm" path="res://Recursos/Scripts/menu_estadisticas.gd" id="2_23w6h"]
+[ext_resource type="PackedScene" uid="uid://rd8ueruk30ql" path="res://Escenas/mapa_calor.tscn" id="2_wuye8"]
+[ext_resource type="LabelSettings" uid="uid://dm2t2lfrwtchr" path="res://Recursos/Temas/gatodoro_label_setting.tres" id="4_23w6h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mt0on"]
+font_size = 36
+
+[node name="Menu_estadisticas" type="Control" unique_id=973638266]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1db6w")
+script = ExtResource("2_23w6h")
+
+[node name="Panel" type="Panel" parent="." unique_id=62004199]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 618.0
+
+[node name="MapaCalor" parent="Panel" unique_id=1049973690 instance=ExtResource("2_wuye8")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.697
+offset_bottom = 0.2539978
+
+[node name="mes_siguiente" type="Button" parent="Panel" unique_id=1032148935]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92200005
+anchor_top = 0.55
+anchor_right = 0.98600006
+anchor_bottom = 0.65400004
+offset_left = -3.0517578e-05
+offset_top = 0.1000061
+offset_right = -3.0517578e-05
+offset_bottom = -0.17202759
+
+[node name="mes_anterior" type="Button" parent="Panel" unique_id=1524269972]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020000001
+anchor_top = 0.55300003
+anchor_right = 0.078
+anchor_bottom = 0.65400004
+offset_left = -3.000001
+offset_top = -1.7540283
+offset_bottom = -0.17202759
+
+[node name="contenedor_stats" type="VBoxContainer" parent="." unique_id=517895197]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -251.0
+offset_right = 251.0
+offset_bottom = 130.0
+grow_horizontal = 2
+
+[node name="boton_atras" type="Button" parent="contenedor_stats" unique_id=656812201]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("1_1db6w")
+
+[node name="estadisticas_generales" type="Label" parent="contenedor_stats" unique_id=488899264]
+layout_mode = 2
+text = "Estadísticas generales"
+label_settings = SubResource("LabelSettings_mt0on")
+horizontal_alignment = 1
+
+[node name="sesiones_completadas_total" type="Label" parent="contenedor_stats" unique_id=533498942]
+layout_mode = 2
+theme = ExtResource("1_1db6w")
+text = "Sesiones completadas en total: "
+label_settings = ExtResource("4_23w6h")
+
+[node name="racha_activa_dias" type="Label" parent="contenedor_stats" unique_id=930768604]
+layout_mode = 2
+theme = ExtResource("1_1db6w")
+text = "Racha activa: "
+label_settings = ExtResource("4_23w6h")
+
+[connection signal="pressed" from="contenedor_stats/boton_atras" to="." method="_on_boton_atras_pressed"]

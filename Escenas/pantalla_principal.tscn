@@ -145,4 +145,5 @@ stream = SubResource("AudioStream_085qs")
 [connection signal="pressed" from="panel/layout_botones/boton_pausa" to="." method="_on_boton_pausa_pressed"]
 [connection signal="pressed" from="panel/layout_botones/boton_skip" to="." method="_on_boton_skip_pressed"]
 [connection signal="pressed" from="panel/layout_botones/boton_reset" to="." method="_on_boton_reset_pressed"]
+[connection signal="pressed" from="panel/boton_estadisticas" to="." method="_on_boton_estadisticas_pressed"]
 [connection signal="timeout" from="temporizador" to="." method="_on_temporizador_timeout"]

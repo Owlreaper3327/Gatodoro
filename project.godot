@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Gatodoro"
+run/main_scene="uid://b33hu2j16jooo"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/show_image=false
 boot_splash/stretch_mode=0
@@ -20,6 +21,7 @@ config/icon="res://icon.svg"
 
 StatManager="*uid://g0aud7ku7o0i"
 GlobalConfig="*uid://x5fww3vo6mst"
+PantallaPrincipal="*uid://b33hu2j16jooo"
 
 [display]
 
